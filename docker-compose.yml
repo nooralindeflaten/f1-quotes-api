@@ -1,0 +1,10 @@
+
+services:
+  f1-quotes-api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./quotes.db:/app/quotes.db
+    environment:
+      - FLASK_ENV=development
