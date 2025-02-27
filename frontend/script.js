@@ -1,9 +1,9 @@
-document.getElementById("quoteButton").addEventListener("click", function() {
-    fetch("http://127.0.0.1:5000/quote")
-    .then(response => response.json())  // Convert response to JSON
-    .then(data => {
-        document.getElementById("quoteDisplay").innerText = `"${data.quote}" - ${data.driver}`;
-    })
-    .catch(error => console.error("Error fetching quote:", error));
+document.getElementById('fetchQuote').addEventListener('click', function() {
+    fetch('http://127.0.0.1:5000/quote')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('quote').innerText = `${data.driver}: ${data.quote}`;
+        })
+        .catch(error => console.error('Error fetching quote:', error));
 });
 

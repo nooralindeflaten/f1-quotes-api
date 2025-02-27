@@ -1,16 +1,10 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 from flask_cors import CORS
 import sqlite3
 
-app = Flask(__name__, template_folder="frontend")  # Tell Flask where HTML is
-CORS(app)
-
-@app.route('/')
-def index():
-    return render_template('index.html')  # Renders your frontend
-
+app = Flask(__name__)
 DB_NAME = "quotes.db"
-
+CORS(app)
 def get_random_quote():
     '''Get a random quote from the database'''
     conn = sqlite3.connect(DB_NAME)
